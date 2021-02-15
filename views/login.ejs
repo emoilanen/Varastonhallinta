@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="fi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/login.css" type="text/css">
+
+    <title>Varaston hallinta </title>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1 class="mb-2">Varaston hallinta </h1>
+
+        <div style="width: 40%;">
+
+            <form class="form-signin" method="POST" action="/login/">
+
+                <h5 class="mb-3 mt-5">Kirjaudu sisään</h3>
+
+                    <label for="kayttajatunnus" class="sr-only">Käyttäjätunnus</label>
+
+                    <input type="text" id="kayttajatunnus" name="kayttajatunnus" class="form-control"
+                        placeholder="Anna käyttäjätunnus" autofocus>
+
+                    <label for="salasana" class="sr-only">Salasana</label>
+
+                    <input type="password" id="salasana" name="salasana" class="form-control mb-5"
+                        placeholder="Anna salasana">
+
+                    <input type="submit" class="btn btn-primary" value="Kirjaudu sisään"> <a href="/"
+                        class="btn btn-secondary">Peruuta</a>
+        </div>
+
+        <% if(virhe) {%>
+        <%=virhe %>
+        <%}%>
+
+    </div>
+    </form>
+    </div>
+</body>
+
+</html>

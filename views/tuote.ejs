@@ -1,0 +1,54 @@
+<%- include("includes/header"); -%>
+
+
+<% if(kayttooikeus == "yllapitaja") {%>
+<%- include("includes/valikko"); -%>
+<% } else { %>
+<%- include("includes/kayttajanValikko"); -%>
+<% } %>
+
+
+<div class="col-9">
+    <h1 class="mt-5 mb-5">Muokkaa tuotetta</h1>
+
+
+    <form method="POST" action="/tallennaMuokattuTuote" enctype="multipart/form-data">
+
+        <div class="form-group col-7">
+            <label for="tuotteenNimi">Nykyinen tuotekuva</label><br>
+            <img src="/uploads/<%=tuote.tuotekuva%>" alt="Tuotekuva">
+            <p class="mt-5">Vaihda tuotekuva</p>
+            <input class="form-control-file" type="file" name="tuotekuva" />
+        </div>
+        <div class="form-group col-7">
+            <input class="form-control" id="tuotteenNimi" name="tuotteenNimi" value="<%=tuote.nimi%>"
+                placeholder="Anna uusi nimi" autofocus>
+        </div>
+        <div class="form-group col-5">
+            <label for="tuotteenHinta">Tuotteen hinta (käytä erottimena pistettä (.)</label><br>
+            <input class="form-control" id="tuotteenHinta" name="tuotteenHinta" value="<%=tuote.hinta%>"
+                placeholder="<%=tuote.hinta%>">
+        </div>
+        <div class="form-group col-7">
+            <label for="tuotekuvaus">Tuotekuvaus</label><br>
+            <textarea class="form-control" id="tuotekuvaus" name="tuotekuvaus"
+                value="<%=tuote.kuvaus%>"><%=tuote.kuvaus%></textarea>
+        </div>
+        <div class="form-group col-3">
+            <label for="varastosaldo">Varastosaldo</label><br>
+            <input class="form-control" id="varastosaldo" name="varastosaldo" value="<%=tuote.varastosaldo%>"
+                placeholder="Kpl varastossa">
+        </div>
+        <input type="hidden" class="form-control" id="tuotteenId" name="tuotteenId" value="<%=tuote.id%>">
+        <input type="hidden" class="form-control" id="tuotekuva" name="tuotekuva" value="<%=tuote.tuotekuva%>">
+
+        <div class="form-group col-3">
+            <button type="submit" class="btn btn-primary">Tallenna</button>
+            <a class="btn btn-dark" href="/">Peruuta</a>
+        </div>
+    </form>
+</div>
+</div>
+</body>
+
+</html>

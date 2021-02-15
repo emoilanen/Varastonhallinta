@@ -1,0 +1,49 @@
+<%- include("includes/header"); -%>
+
+
+<% if(kayttooikeus == "yllapitaja") {%>
+    <%- include("includes/valikko"); -%>
+    <% } else { %>
+        <%- include("includes/kayttajanValikko"); -%>
+        <% } %>
+
+
+<div class="col-9">
+    <h1 class="mt-5 mb-5">Lisää uusi käyttäjä</h1>
+
+    <% if( virhe) { %>
+
+    <div class="alert alert-danger" role="alert">
+        <%= virhe %>
+    </div>
+
+    <% } %>
+
+    <form method="POST" action="/tallennaKayttaja">
+
+        <div class="form-group col-7">
+            <label for="kayttajatunnus">Käyttäjätunnus</label><br>
+            <input class="form-control" id="kayttajatunnus" name="kayttajatunnus" value=""
+                placeholder="Anna käyttäjätunnus" autofocus>
+        </div>
+        <div class="form-group col-5">
+            <label for="salasana">Salasana</label><br>
+            <input class="form-control" id="salasana" name="salasana" value="" placeholder="Anna salasana">
+        </div>
+
+        <div class="form-group col-5">
+            <p>Valitse käyttöoikeus:</p>
+            <label for="asiakas">Asiakas</label>
+            <input type="radio" id="asiakas" name="kayttooikeudet" value="asiakas" checked><br>
+            <label for="asiakas">Ylläpitäjä</label>
+            <input type="radio" id="yllapitaja" name="kayttooikeudet" value="yllapitaja">
+        </div>
+        <div class="form-group col-3">
+            <button type="submit" class="btn btn-primary">Tallenna</button>
+        </div>
+    </form>
+</div>
+
+</body>
+
+</html>

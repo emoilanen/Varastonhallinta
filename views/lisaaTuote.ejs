@@ -1,0 +1,55 @@
+<%- include("includes/header"); -%>
+
+
+<% if(kayttooikeus == "yllapitaja") {%>
+<%- include("includes/valikko"); -%>
+<% } else { %>
+<%- include("includes/kayttajanValikko"); -%>
+<% } %>
+
+
+<div class="col-9">
+    <h1 class="mt-5 mb-5">Lisää uusi tuote</h1>
+
+    <% if( virhe) { %>
+
+    <div class="alert alert-danger" role="alert">
+        <%= virhe %>
+    </div>
+
+    <% } %>
+
+    <form method="POST" action="/tallennaTuote" enctype="multipart/form-data">
+
+        <div class="form-group col-7">
+            <label for="tuotteenNimi">Tuotekuva</label><br>
+            <input class="form-control-file" type="file" name="tuotekuva" />
+        </div>
+        <div class="form-group col-7">
+            <label for="tuotteenNimi">Tuotteen nimi</label><br>
+            <input class="form-control" id="tuotteenNimi" name="tuotteenNimi" value="" placeholder="Anna tuotteen nimi"
+                autofocus>
+        </div>
+        <div class="form-group col-5">
+            <label for="tuotteenHinta">Tuotteen hinta (käytä erottimena pistettä (.)</label><br>
+            <input class="form-control" id="tuotteenHinta" name="tuotteenHinta" value=""
+                placeholder="Anna tuotteen hinta">
+        </div>
+        <div class="form-group col-7">
+            <label for="tuotekuvaus">Tuotekuvaus</label><br>
+            <textarea class="form-control" id="tuotekuvaus" name="tuotekuvaus" value=""
+                placeholder="Anna tuotekuvaus"></textarea>
+        </div>
+        <div class="form-group col-3">
+            <label for="varastosaldo">Varastosaldo</label><br>
+            <input class="form-control" id="varastosaldo" name="varastosaldo" value="" placeholder="Kpl varastossa">
+        </div>
+        <div class="form-group col-3">
+            <button type="submit" class="btn btn-primary">Tallenna</button>
+        </div>
+    </form>
+</div>
+</div>
+</body>
+
+</html>
